@@ -1,4 +1,5 @@
-<div class="container">
+{{ template "elements-header" }}
+<div class="content-block">
     <h1>{{ .drinkName }}</h1>
     <h3>Ingredients</h3>
     <ul>
@@ -13,3 +14,4 @@
         {{ end }}
     </ol>
 </div>
+{{ template "elements-footer" }}

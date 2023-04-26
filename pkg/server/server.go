@@ -47,5 +47,11 @@ func Run(data data.Data) {
 		})
 	}
 
+	router.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusNotFound, "404.tmpl", gin.H{
+			"title": "oops",
+		})
+	})
+
 	router.Run(":5050")
 }

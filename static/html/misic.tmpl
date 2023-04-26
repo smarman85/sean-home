@@ -1,7 +1,9 @@
-<div class="container">
+{{ template "elements-header" }}
+<div class="content-block">
     <ol>
         {{ range $key, $value := .category }}
         <ul>{{ $key }}: {{ $value }}</ul>
         {{ end }}
     </ol>
 </div>
+{{ template "elements-footer" }}
