@@ -1,0 +1,7 @@
+<div class="container">
+    <ol>
+        {{ range $key, $value := .category }}
+        <ul>{{ $key }}: {{ $value }}</ul>
+        {{ end }}
+    </ol>
+</div>

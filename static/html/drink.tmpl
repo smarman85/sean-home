@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>{{ .drinkName }}</h1>
+    <h3>Ingredients</h3>
+    <ul>
+        {{ range $ingredient, $measure := .drink.ingredients }}
+        <li>{{ $ingredient }}: {{ $measure }}</li>
+        {{ end }}
+    </ul>
+    <h3>Directions</h3>
+    <ol>
+        {{ range $step := .drink.directions }}
+        <li>{{ $step }}</li>
+        {{ end }}
+    </ol>
+</div>
