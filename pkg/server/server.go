@@ -53,5 +53,5 @@ func Run(data data.Data) {
 		})
 	})
 
-	router.Run(":5050")
+	router.Run(":8080")
 }
