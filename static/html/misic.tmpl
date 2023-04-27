@@ -1,9 +1,10 @@
 {{ template "elements-header" }}
-<div class="content-block">
-    <ol>
-        {{ range $key, $value := .category }}
-        <ul>{{ $key }}: {{ $value }}</ul>
+<h1>Misic</h1>
+<ul>
+    {{ range $keys := .category }}
+        {{ range $key, $value := $keys }}
+            <ul>{{ $key }}: {{ $value }}</ul>
         {{ end }}
-    </ol>
-</div>
+    {{ end }}
+</ul>
 {{ template "elements-footer" }}

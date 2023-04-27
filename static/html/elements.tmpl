@@ -19,35 +19,28 @@
   <meta name="theme-color" content="#ffffff">
   <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
   <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <title>Sean Marman</title>
   <link rel="stylesheet" type="text/css" href="/static/assets/main.css">
   <script src="/static/assets/js/script.js"></script>
 </head>
 <body>
   <div class="container">
-    <header>
-      <img class="me" src="https://avatars3.githubusercontent.com/u/4985101?v=3&amps=460" alt="">
-      <span class="hamburger" onclick="toggle()">&#9776;</span>
-      <ul class="links">
-        <a href="/">
-          <li>Home</li>
-        </a>
-        <a href="/about">
-          <li>About Me</li>
-        </a>
-        <a href="/posts">
-          <li>Projects</li>
-        </a>
-        <!-- <a href="/resume"><li>Resume</li></a> -->
-      </ul>
-      <ul id="mobile-menu" style="display: none;">
-        <a onclick="toggle()" href="/"><li>Home</li></a>
-        <a onclick="toggle()" href="/about"><li>About Me</li></a>
-        <a onclick="toggle()" href="/posts"><li>Projects</li></a>
-        <!-- <a onclick="toggle()" href="/resume"><li>Resume</li></a> -->
-      </ul>
-    </header>
-      <img class="background-image" src="/static/assets/images/hero.jpg" alt="Golden Gate Bridge"> 
+    <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/workouts">Workouts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/drinks/mai-tai">mai-tai</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/misic">misic</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="content-block">
       {{ if .Alert }}
         <h1>{{ .Alert }}</h1>
@@ -57,11 +50,6 @@
       {{/* template "yield" . */}}
     </div>
     <footer>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/seanmarman"><img src="/static/assets/images/linkedin.png" alt=""></a>
-        <a href="https://twitter.com/smarman85"><img src="/static/assets/images/twitter.png" alt=""></a>
-        <a href="https://github.com/smarman85"><img src="/static/assets/images/github.png" alt=""></a>
-      </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </footer>
   </div>

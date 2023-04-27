@@ -40,9 +40,9 @@ func Run(data data.Data) {
 			})
 		})
 
-		web.GET("/misic/:category", func(c *gin.Context) {
+		web.GET("/misic", func(c *gin.Context) {
 			c.HTML(http.StatusOK, "misic.tmpl", gin.H{
-				"category": data.Misic[c.Param("category")],
+				"category": data.Misic,
 			})
 		})
 	}
