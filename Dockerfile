@@ -21,4 +21,4 @@ RUN cd ${GOPATH}/src/${GOAPP} && go build -o $GOAPP
 USER ${USER}
 WORKDIR ${GOPATH}/src/${GOAPP}
 # ENTRYPOINT ["/usr/bin/dumb-init", "--", "/go/src/hockeyTrainer/hockeyTrainer"]
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/go/src/seanhome/bin/run.sh"]
