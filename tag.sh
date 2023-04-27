@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP=seanhom
+APP=seanhome
 
 docker rm -f $APP
 
