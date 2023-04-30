@@ -214,7 +214,7 @@ spec:
     spec:
       containers:
       - name: seanhome
-        image: smarman/seanhome:0.0.1-arm
+        image: smarman/seanhome:0.0.2-arm
         command: ["/go/src/seanhome/bin/run.sh"]
         imagePullPolicy: Always
           #livenessProbe:

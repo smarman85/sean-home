@@ -17,8 +17,7 @@ RUN apk update && \
 COPY . ${GOPATH}/src/${GOAPP}/
 RUN cd ${GOPATH}/src/${GOAPP}/ && go mod vendor
 RUN cd ${GOPATH}/src/${GOAPP} && go build -o $GOAPP
-# RUN CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc GOOS=linux GOARCH=arm64 go build -o goSite .
 USER ${USER}
 WORKDIR ${GOPATH}/src/${GOAPP}
 # ENTRYPOINT ["/usr/bin/dumb-init", "--", "/go/src/hockeyTrainer/hockeyTrainer"]
-ENTRYPOINT ["/go/src/seanhome/bin/run.sh"]
+CMD ["/bin/sh"]
