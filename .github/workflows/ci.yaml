@@ -19,7 +19,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: verify sha
-        run: echo "vars: ${{ vars.GITHUB_SHA }}\ngithub: ${{ github.GITHUB_SHA }}"
+        run: echo "github: ${{ github.sha }}"
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
@@ -27,4 +27,4 @@ jobs:
           platforms: linux/amd64,linux/arm/v7
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/seanhome:${{ github.GITHUB_SHA }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/seanhome:${{ github.sha }}
