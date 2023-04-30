@@ -1,0 +1,6 @@
+.git/
+.gitignore
+.dockerignore
+*.swp
+Dockerfile
+tag.sh
