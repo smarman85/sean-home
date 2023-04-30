@@ -9,163 +9,6 @@ metadata:
   name: seanhome
   clusterName: raspberrypi
 ---
-# Source: chart/templates/configMap.yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-    name: seanhome-cm
-    namespace: seanhome
-data:
-    drills.yaml: |
-      FastHands:
-        Wide & Short Dribble Combo:
-          drill:
-            - 1‐5, 5‐1, 1, 5, 5, 1, Repeat
-          drillStartsAt: 17
-          image_name: wide_and_short_dribble_combo_1.png
-        Bait Cup Go Around:
-          drill:
-            - 3, TD 3, Around, 1, 3, TD 3, 1, Around, Repeat
-          drillStartsAt: 34
-          image_name: bait_cup_go_around_2.png
-        Expansion Across:
-          drill:
-            - 1‐4, 4‐1, 1‐5, Reverse, 5‐2, 2‐5, 5‐1, Repeat
-          drillStartsAt: 55
-          image_name: expansion_accross_3.png
-        V‐Pattern Drill:
-          drill:
-            - 2, 4, 5‐1, Repeat *Opposite direction 4, 2, 1‐5, Repeat
-          drillStartsAt: 77
-          image_name: v_pattern_4.png
-        X‐Pattern Drill:
-          drill:
-            - 1‐4, Over, 2‐5, 5‐2, Over, 4‐1, Repeat
-          drillStartsAt: 93
-          image_name: x_pattern_5.png
-        Toe Drag Backhand Toe Drag:
-          drill:
-            - TD 3, BTD 2, TD 3, BTD 1, Repeat
-          drillStartsAt: 112
-          image_name: toe_drag_backhand_toe_drag_6.png
-        Fake Pass Pull Through:
-          drill:
-            - Fake Pass, 4‐1, Fake Pass, BTD 5‐1, Repeat
-          drillStartsAt: 133
-          image_name: fake_pass_pull_through_7.png
-        Forward Bring Back:
-          drill:
-            - 4‐1, 2, 3, Repeat
-          drillStartsAt: 147
-          image_name: forward_bring_back_8.png
-        Minnesota:
-          drill:
-            - TD 5, 5, 3, 4‐1, 4, 4, Repeat
-          drillStartsAt: 157
-          image_name: minnesota_9.png
-        Z‐Pattern Drill:
-          drill:
-            - Over, 2, 4, 4, 2, Repeat
-          drillStartsAt: 172
-          image_name: z_pattern_drill_10.png
-        Backhand Lateral Expansion:
-          drill:
-            - Over Wide, 2, 4, Over Wider, 1, 4, Repeat
-          drillStartsAt: 185
-          image_name: backhand_lateral_expansion_11.png
-        Behind Rotational Control:
-          drill:
-            - Backhand 2, TD 3, 2, TD 4, Repeat
-          drillStartsAt: 196
-          image_name: behind_rotational_control_12.png
-        Quick Stick Figure 8:
-          drill:
-            - 5, 4, 1, 2, Repeat
-          drillStartsAt: 208
-          image_name: quick_stick_figure_8_13.png
-        Wide Figure 8:
-          drill:
-            - Around, 1, Around, 5, Around, 2, Around, 4, Repeat
-          drillStartsAt: 227
-          image_name: wide_figure_8_14.png
-        Expansion of Reach:
-          drill:
-            - 2‐5, 4‐1, Repeat
-          drillStartsAt: 242
-          image_name: expansion_of_reach_15.png
-        Fast Hands:
-          drill:
-            - 4, 4, 5, 5‐1, 1, Reverse, 2, 2, 1, 1‐5, 5, Repeat
-          drillStartsAt: 253
-          image_name: fast_hands_16.png
-        Small & Big Circle:
-          drill:
-            - 4, 2, 5‐1, Repeat *Opposite direction 2, 4, 1‐5, Repeat
-          drillStartsAt: 269
-          image_name: small_and_big_circle_17.png
-        Accuracy:
-          drill:
-            - 4‐2, 2, TD 3, Reverse, 2‐4, 4, TD 3, Repeat
-          drillStartsAt: 282
-          image_name: accuracy_18.png
-        Michigan:
-          drill:
-            - 4, 4, 3, 2, TD 1, 2, Repeat
-          drillStartsAt: 297
-          image_name: michigan_19.png
-        Quick Circles:
-          drill:
-            - 3, Around, 5, Around, 4, Around, 5, Repeat
-          drillStartsAt: 309
-          image_name: quick_circles_20.png
-        Toe Drag Transition:
-          drill:
-            - 3, TD 1, 2, 3, Repeat
-          drillStartsAt: 331
-          image_name: toe_drag_transition_21.png
-        Backhand Toe Drag Deception:
-          drill:
-            - BTD 3, 2, 4, Around, Repeat
-          drillStartsAt: 345
-          image_name: backhand_toe_drag_deception_22.png
-        Forehand Lateral Expansion:
-          drill:
-            - Pull Wide, 4, 2 Pull Wider, 5, 2, Repeat
-          drillStartsAt: 366
-          image_name: forehand_lateral_expansion_23.png
-        Lateral Control Forehand:
-          drill:
-            - 4, 3, TD 1, Forehand 4, 2, TD 1, Repeat
-          drillStartsAt: 385
-          image_name: lateral_control_24.png
-    
-      MetaData:
-        fastHandsYouTubeBaseUrl: https://youtu.be/pA8jfbHY8dQ?t=
-    
-      Weights:
-        chest-arms:
-          pushups: 34
-          curls: 60
-          tricepts: 80
-          wrist-extensions: 50
-          wrist-curls: 70
-        shoulders-back:
-          shrugs: 160
-          16s: 50
-          bent-over-row: 160
-        legs:
-          #squat: 180
-          side-lunges: 90X1
-          calf-raises: 180
-          split-squat: 180
-          romanian-dead-lift: 90
-          high-jump: 5X3
-          back-jump-leap: 3X10
-    
-      Cardio:
-        water-rower: 30
-        peloton: tabata
----
 # Source: chart/templates/service.yaml
 apiVersion: v1
 kind: Service
@@ -214,7 +57,7 @@ spec:
     spec:
       containers:
       - name: seanhome
-        image: smarman/seanhome:0.0.2-arm
+        image: smarman/seanhome:0.0.3-arm
         command: ["/go/src/seanhome/bin/run.sh"]
         imagePullPolicy: Always
           #livenessProbe:
@@ -228,13 +71,8 @@ spec:
         stdin: true
         tty: true
         volumeMounts:
-        - name: config-volume
-          mountPath: /etc/configs
       restartPolicy: Always
       volumes:
-        - name: config-volume
-          configMap:
-            name: seanhome-cm
 ---
 # Source: chart/templates/ingress.yaml
 apiVersion: networking.k8s.io/v1
@@ -255,23 +93,3 @@ spec:
           path: /
           pathType: ImplementationSpecific
 ---
-# Source: chart/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "seanhome-chart-test-connection"
-  labels:
-    helm.sh/chart: chart-0.1.0
-    app.kubernetes.io/name: chart
-    app.kubernetes.io/instance: seanhome
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['seanhome-chart:80']
-  restartPolicy: Never
