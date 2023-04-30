@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          platforms: linux/amd64,linux/arm/v7
+          platforms: linux/arm/v7
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/seanhome:${{ github.sha }}
