@@ -25,4 +25,4 @@ jobs:
           platforms: linux/amd64,linux/arm/v7
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/seanhome:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/seanhome:${{ vars.GITHUB_SHA }}
