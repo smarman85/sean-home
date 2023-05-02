@@ -151,6 +151,7 @@ Cardio:
 
 Drinks:
   mai-tai:
+    name: Mai Tai (Hawaiian)
     ingredients:
       light-rum: 1oz
       dark-rum: 1oz
@@ -163,6 +164,16 @@ Drinks:
         for 30 seconds.
       - |
         Pour over ice and use a bar spoon to float the dark rum on the top.
+  mock-tai:
+    name: Mock Mai Tai
+    ingredients:
+      lime-juice: 2oz
+      orange-juice: 2oz
+      almond-extract: 1 dash
+      simple-syrup: 1/4oz
+      orgeat: 1/4oz
+    directions:
+      - Mix it all together over ice
 Misic:
   hair:
     beard: 5mm

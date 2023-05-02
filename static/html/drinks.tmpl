@@ -1,5 +1,5 @@
 {{ template "elements-header" }}
-<h1>{{ .drinkName }}</h1>
+<h1>{{ .drink.name }}</h1>
 <h3>Ingredients</h3>
 <ul>
     {{ range $ingredient, $measure := .drink.ingredients }}
