@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: seanhome
-        image: smarman/seanhome:0.0.3-arm
+        image: smarman/seanhome:0f4611649922566febb48e1c15a342d9a3921cd0
         command: ["/go/src/seanhome/bin/run.sh"]
         imagePullPolicy: Always
           #livenessProbe:

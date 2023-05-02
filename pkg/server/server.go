@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"net/http"
+  "os"
 
 	"seanHome/pkg/data"
 
@@ -34,7 +35,16 @@ func Run(data data.Data) {
 		})
 
 		web.GET("/drinks/:drink", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "drink.tmpl", gin.H{
+      d := c.Param("drink")
+
+      // check if the template exists before rendering it 
+      // else redirect to home
+      if _, err := os.Stat("static/html/" + d + ".tmpl"); err != nil {
+        c.Redirect(http.StatusMovedPermanently, "/")
+        return
+      }
+
+			c.HTML(http.StatusOK, fmt.Sprintf("%s.tmpl", d), gin.H{
 				"drink":     data.Drinks[c.Param("drink")],
 				"drinkName": c.Param("drink"),
 			})
