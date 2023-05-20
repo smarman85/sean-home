@@ -1,0 +1,20 @@
+{{ template "elements-header" }}
+<div class="container-fluid">
+  <h1>{{ .drink.name }}</h1>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      {{ range $ingredient, $measure := .drink.ingredients }}
+      <tr>
+          <td>{{ $ingredient }}:</td>
+          <td>{{ $measure }}</td>
+      </tr>
+      {{ end }}
+      <tr></tr>
+      <tr></tr>
+    </table>
+    {{ range $step := .drink.directions }}
+    <p>{{ $step }}</p>
+    {{ end }}
+  </div>
+</div>
+{{ template "elements-footer" }}

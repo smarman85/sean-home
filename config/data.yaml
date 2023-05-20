@@ -124,14 +124,12 @@ FastHands:
 MetaData:
   fastHandsYouTubeBaseUrl: https://youtu.be/pA8jfbHY8dQ?t=
 
-Weights:
-  chest-arms:
-    pushups: 34
+Workouts:
+  upper-body:
     curls: 60
     tricepts: 80
     wrist-extensions: 50
     wrist-curls: 70
-  shoulders-back:
     shoulder-shrugs: 160
     16s: 50
     bent-over-row: 160
@@ -144,10 +142,17 @@ Weights:
     romanian-dead-lift: 90
     high-jump: 5X3
     back-jump-leap: 3X10
+  back-and-core:
+    pushups: 34
+    supermans: 20sec
+    plank: 20sec
+    chair-dips: 20
+    heel-tap-crunches: 50
+    hollow-bicycle: 30
 
-Cardio:
-  water-rower: 30
-  peloton: tabata
+  cardio:
+    water-rower: 30
+    peloton: tabata
 
 Drinks:
   mai-tai:
@@ -175,7 +180,7 @@ Drinks:
     directions:
       - Mix it all together over ice
 Misic:
-  hair:
+  trim:
     beard: 5mm
     eye-brows: 7mm
     chest: 1 guard

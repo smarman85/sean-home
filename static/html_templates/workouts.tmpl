@@ -1,0 +1,38 @@
+{{ template "elements-header" }}
+<h1>Let's Train!</h1>
+  <h2 id="weights">Workouts</h2>
+  <div class="container-fluid">
+    {{ range $k, $v := .workouts }}
+    <h3>{{ $k }}</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        {{ range $i, $j := $v }}
+        <tr>
+            <td>{{ $i }}</td>
+            <td>{{ $j }}</td>
+        </tr>
+        {{ end }}
+        <tr></tr>
+        <tr></tr>
+      </table>
+    </div>
+    {{ end }}
+  </div>
+
+  <h2 id="fasthands">FastHands</h2>
+  <div class="container-fluid">
+    {{ range $k,$v := .fastHands }}
+    <div class="row">
+      <div class="col">
+        <h3>{{ $k }}</h3>
+        {{ range $i := $v.drill }}
+            <p>{{ $i }}</p>
+        {{ end }}
+      </div>
+      <div class="col">
+        <iframe class="img-fluid" src="https://www.youtube.com/embed/pA8jfbHY8dQ?start={{ $v.drillStartsAt }}" title="YouTube video player" allowfullscreen></iframe>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+{{ template "elements-footer" }}

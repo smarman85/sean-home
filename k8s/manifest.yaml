@@ -5,42 +5,42 @@ kind: Namespace
 metadata:
   labels:
   annotations:
-    app: seanhome
-  name: seanhome
+    app: sean-home
+  name: sean-home
   clusterName: raspberrypi
 ---
 # Source: chart/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: seanhome-svc
-  namespace: seanhome
+  name: sean-home-svc
+  namespace: sean-home
   labels:
-    app: seanhome
+    app: sean-home
 spec:
   ports:
   - name: http
     port: 8080
-    nodePort: 30088
+    nodePort: 30090
   selector:
-    app: seanhome
+    app: sean-home
   type: NodePort
 ---
 # Source: chart/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: seanhome
-  namespace: seanhome
+  name: sean-home
+  namespace: sean-home
   labels:
-    app: seanhome
+    app: sean-home
   annotations:
-    app: seanhome
+    app: sean-home
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: seanhome
+      app: sean-home
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -48,17 +48,17 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      name: seanhome
-      namespace: seanhome
+      name: sean-home
+      namespace: sean-home
       labels:
-        app: seanhome
+        app: sean-home
       annotations:
-        app: seanhome
+        app: sean-home
     spec:
       containers:
-      - name: seanhome
-        image: smarman/seanhome:9e8e9e12aa4854f0523dfdf3da146ca31cd6e16c
-        command: ["/go/src/seanhome/bin/run.sh"]
+      - name: sean-home
+        image: smarman/sean-home:55608576070d1410eb24b5e9edbbb17aea1c74bd
+        command: ["/go/src/sean-home/bin/run.sh"]
         imagePullPolicy: Always
           #livenessProbe:
           #  httpGet:
@@ -78,16 +78,16 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: seanhome-ing
-  namespace: seanhome
+  name: sean-home-ing
+  namespace: sean-home
 spec:
     rules:
-    - host: seanhome.local.seanhome.xyz
+    - host: sean-home.local.sean-home.xyz
       http:
         paths:
         - backend:
             service:
-              name: seanhome-svc
+              name: sean-home-svc
               port:
                 name: http
           path: /

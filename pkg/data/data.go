@@ -2,31 +2,28 @@ package data
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 type Data struct {
 	FastHands map[string]map[string]interface{} `yaml:"FastHands"`
 	MetaData  map[string]string                 `yaml:"MetaData"`
-	Weights   map[string]map[string]interface{} `yaml:"Weights"`
+	Workouts  map[string]map[string]interface{} `yaml:"Workouts"`
 	Drinks    map[string]map[string]interface{} `yaml:"Drinks"`
 	Misic     map[string]map[string]string      `yaml:"Misic"`
-	Cardio    map[string]map[string]interface{} `yaml:"Cardio"`
 }
 
 func Read() (Data, error) {
-	fmt.Println("Hello from data")
 	var data Data
-	yamlFile, err := ioutil.ReadFile("./config/data.yaml")
+	yamlFile, err := os.ReadFile("./config/data.yaml")
 	if err != nil {
-		return data, fmt.Errorf("error reading yaml file %v", err)
+		return data, fmt.Errorf("error reading config file: %v", err)
 	}
-
 	err = yaml.Unmarshal(yamlFile, &data)
 	if err != nil {
-		return data, fmt.Errorf("can't unmarshal yaml %v", err)
+		return data, fmt.Errorf("error unmarshaling yaml: %v", err)
 	}
 	return data, nil
 }

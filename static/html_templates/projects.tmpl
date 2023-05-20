@@ -1,0 +1,16 @@
+{{ template "elements-header" }}
+<h1>Posts + Projects</h1>
+{{/* <h1>{{ . }}</h1>  */}}
+<div class="tile_container">
+{{ range $key, $value := . }}
+  <a href="/posts/{{ $key }}">
+    <div class="projects-tile">
+      <h1>{{ index $value 0 }}</h1>
+      <img src="http://www.fillmurray.com/300/200" alt="">
+      <!-- <p>{{ index $value 0 }}</p> -->
+      <p>{{ index $value 1 }}</p>
+    </div>
+  </a>
+{{ end }}
+</div>
+{{ template "elements-footer" }}

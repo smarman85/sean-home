@@ -1,0 +1,14 @@
+{{ template "elements-header" }}
+<h1>Posts + Projects</h1>
+<div class="tile_container">
+{{range $key, $value := .projects }}
+  <a href="/posts/{{ $key }}">
+    <div class="projects-tile">
+      <h1>{{ $value.title }}</h1>
+      <img src="http://www.fillmurray.com/300/200" alt="">
+      <p>{{ $value.desc }}</p>
+    </div>
+  </a>
+{{end}}
+</div>
+{{ template "elements-footer" }}

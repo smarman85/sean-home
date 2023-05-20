@@ -1,66 +1,104 @@
 package server
 
 import (
-	"fmt"
+	"log"
 	"net/http"
-  // "os"
-
-	"seanHome/pkg/data"
+	"os"
+	"sean-home/pkg/data"
 
 	"github.com/gin-gonic/gin"
 )
 
-func Run(data data.Data) {
-	fmt.Println("hello from server")
+func validateTemplate(templateName string) bool {
+	valid := false
+	_, err := os.Stat("static/html_templates/" + templateName + ".tmpl")
+	if err != nil {
+		return valid
+	} else {
+		valid = true
+	}
+	return valid
+}
+
+func Run() {
 	router := gin.Default()
+
+	info, err := data.Read()
+	if err != nil {
+		log.Fatalf("error getting data file: %v", err)
+	}
 
 	web := router.Group("/")
 	{
-		router.LoadHTMLGlob("static/html/*")
+		router.LoadHTMLGlob("static/html_templates/*")
 		router.Static("/static/assets/", "./static/assets")
 
 		web.GET("/", func(c *gin.Context) {
 			c.HTML(http.StatusOK, "index.tmpl", gin.H{
-				"title": "Welcome",
+				"title": "Sean's Site",
 			})
+		})
+
+		/*
+			web.GET("/posts/:postID", func(c *gin.Context) {
+				p := c.Param("postID")
+				if validateTemplate(p) {
+					c.HTML(http.StatusOK, p+".tmpl", gin.H{
+						"title": p,
+						"post":  p,
+					})
+				} else {
+					c.Redirect(http.StatusMovedPermanently, "/")
+				}
+			})
+		*/
+
+		web.GET("/drinks/:drink", func(c *gin.Context) {
+			d := c.Param("drink")
+			_, ok := info.Drinks[d]
+			if ok {
+				c.HTML(http.StatusOK, "drinks.tmpl", gin.H{
+					"drink": info.Drinks[d],
+				})
+			} else {
+				c.Redirect(http.StatusMovedPermanently, "/")
+			}
 		})
 
 		web.GET("/workouts", func(c *gin.Context) {
 			c.HTML(http.StatusOK, "workouts.tmpl", gin.H{
-				"fastHands": data.FastHands,
-				"metadata":  data.MetaData,
-				"weights":   data.Weights,
-				"cardio":    data.Cardio,
+				"title":     "Workouts",
+				"workouts":  info.Workouts,
+				"fastHands": info.FastHands,
+				"metadata":  info.MetaData,
 			})
-		})
-
-		web.GET("/drinks/:drink", func(c *gin.Context) {
-      d := c.Param("drink")
-
-      // check if the template exists before rendering it 
-      // else redirect to home
-      /*
-      if _, err := os.Stat("static/html/" + d + ".tmpl"); err != nil {
-        c.Redirect(http.StatusMovedPermanently, "/")
-        return
-      }
-      */
-
-      _, ok := data.Drinks[d];
-      if ok {
-			  c.HTML(http.StatusOK, "drinks.tmpl", gin.H{
-          "drink":     data.Drinks[d],
-			  })
-      } else {
-        c.Redirect(http.StatusMovedPermanently, "/")
-        return
-      }
 		})
 
 		web.GET("/misic", func(c *gin.Context) {
 			c.HTML(http.StatusOK, "misic.tmpl", gin.H{
-				"category": data.Misic,
+				"title": "Misic",
+				"misic": info.Misic,
 			})
+		})
+
+	}
+
+	v1 := router.Group("/api/v1")
+	{
+		v1.GET("/ping", func(c *gin.Context) {
+			c.JSON(http.StatusOK, gin.H{
+				"ping": "pong", "status": http.StatusOK,
+			})
+		})
+		v1.GET("/user/:name", func(c *gin.Context) {
+			u := c.Param("name")
+			if u != "" {
+				c.JSON(http.StatusOK, gin.H{
+					"hello": c.Param("name"),
+				})
+			} else {
+				c.Redirect(http.StatusMovedPermanently, "/")
+			}
 		})
 	}
 

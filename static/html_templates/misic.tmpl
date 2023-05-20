@@ -1,0 +1,19 @@
+{{ template "elements-header" }}
+<div class="container-fluid">
+  {{ range $heading, $values := .misic }}
+    <h1>{{ $heading }}</h1>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        {{ range $key, $value := $values }}
+        <tr>
+          <td>{{ $key }}:</td>
+          <td>{{ $value }}</td>
+        </tr>
+        {{ end }}
+        <tr></tr>
+        <tr></tr>
+      </table>
+    </div>
+  {{ end }}
+</div>
+{{ template "elements-footer" }}
