@@ -21,7 +21,7 @@ spec:
   ports:
   - name: http
     port: 8080
-    nodePort: 30090
+    nodePort: 30100
   selector:
     app: sean-home
   type: NodePort
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: sean-home
-        image: smarman/sean-home:55608576070d1410eb24b5e9edbbb17aea1c74bd
+        image: smarman/sean-home:8780ee270b7a44f38d0973b3c88f67185797e8a8
         command: ["/go/src/sean-home/bin/run.sh"]
         imagePullPolicy: Always
           #livenessProbe:

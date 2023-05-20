@@ -53,11 +53,18 @@ func Run() {
 			})
 		*/
 
+		web.GET("/drinks", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "drinks.tmpl", gin.H{
+				"title":  "Drinks",
+				"drinks": info.Drinks,
+			})
+		})
+
 		web.GET("/drinks/:drink", func(c *gin.Context) {
 			d := c.Param("drink")
 			_, ok := info.Drinks[d]
 			if ok {
-				c.HTML(http.StatusOK, "drinks.tmpl", gin.H{
+				c.HTML(http.StatusOK, "drink.tmpl", gin.H{
 					"drink": info.Drinks[d],
 				})
 			} else {
