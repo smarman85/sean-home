@@ -1,1 +1,1 @@
-# home-server
+# sean-home
