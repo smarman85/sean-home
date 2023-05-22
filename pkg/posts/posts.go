@@ -1,39 +1,39 @@
 package posts
 
 var Projects map[string][]string = map[string][]string{
-	"go-api": []string{
+	"go-api": {
 		"Golang API",
 		"Simple Api using gin-gonic.",
 	},
-	"app-of-apps": []string{
+	"app-of-apps": {
 		"Argocd Applications",
 		"Argocd app of apps definition.",
 	},
-	"github-actions": []string{
+	"github-actions": {
 		"Github actions",
 		"Automating workflows with github actions.",
 	},
-	"k8s-svc": []string{
+	"k8s-svc": {
 		"K8s Service Accounts",
 		"Kubernetes Service accounts and how they grant access.",
 	},
-	"helm": []string{
+	"helm": {
 		"Helm Manifests",
 		"Building K8s manifests with Helm3",
 	},
-	"terraform": []string{
+	"terraform": {
 		"Terraforming AWS Resources",
 		"Building out your AWS infrastructure with Terraform",
 	},
-	"docker": []string{
+	"docker": {
 		"Dockerfile Best Practices",
 		"Setting up minimal and secure dockerfiles",
 	},
-	"traefik": []string{
+	"traefik": {
 		"Local developement with Traefik",
 		"Use traefik to simplify local development",
 	},
-	"post1": []string{
+	"post1": {
 		"Lorem Ipsume",
 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 	},
