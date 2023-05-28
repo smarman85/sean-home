@@ -11,7 +11,7 @@ import (
 
 func validateTemplate(templateName string) bool {
 	valid := false
-	_, err := os.Stat("static/html_templates/" + templateName + ".tmpl")
+	_, err := os.Stat("static/html_templates/" + templateName + ".html")
 	if err != nil {
 		return valid
 	} else {
@@ -34,7 +34,7 @@ func Run() {
 		router.Static("/static/assets/", "./static/assets")
 
 		web.GET("/", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			c.HTML(http.StatusOK, "index.html", gin.H{
 				"title": "Sean's Site",
 			})
 		})
@@ -54,7 +54,7 @@ func Run() {
 		*/
 
 		web.GET("/drinks", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "drinks.tmpl", gin.H{
+			c.HTML(http.StatusOK, "drinks.html", gin.H{
 				"title":  "Drinks",
 				"drinks": info.Drinks,
 			})
@@ -64,7 +64,7 @@ func Run() {
 			d := c.Param("drink")
 			_, ok := info.Drinks[d]
 			if ok {
-				c.HTML(http.StatusOK, "drink.tmpl", gin.H{
+				c.HTML(http.StatusOK, "drink.html", gin.H{
 					"drink": info.Drinks[d],
 				})
 			} else {
@@ -73,7 +73,7 @@ func Run() {
 		})
 
 		web.GET("/workouts", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "workouts.tmpl", gin.H{
+			c.HTML(http.StatusOK, "workouts.html", gin.H{
 				"title":     "Workouts",
 				"workouts":  info.Workouts,
 				"fastHands": info.FastHands,
@@ -82,7 +82,7 @@ func Run() {
 		})
 
 		web.GET("/misic", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "misic.tmpl", gin.H{
+			c.HTML(http.StatusOK, "misic.html", gin.H{
 				"title": "Misic",
 				"misic": info.Misic,
 			})
@@ -110,7 +110,7 @@ func Run() {
 	}
 
 	router.NoRoute(func(c *gin.Context) {
-		c.HTML(http.StatusNotFound, "404.tmpl", gin.H{
+		c.HTML(http.StatusNotFound, "404.html", gin.H{
 			"title": "oops",
 		})
 	})
